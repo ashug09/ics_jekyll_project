@@ -1,0 +1,189 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+<body class="crumina-grid" style="background-image: none;">
+{% include loader.html %}
+{% include header.html %}
+{% include menu.html %}
+
+<div class="main-content-wrapper">
+    
+    
+    <section>
+        <div class="row mx5">
+
+            <!-- Blog post Details -->
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <section class="pt120" style="display:flex;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 blog-title">
+                                <header class="crumina-module crumina-heading heading--h2 no-margin">
+                                    <ul class="breadcrumbs mt-3">
+                                        <li class="breadcrumbs-item">
+                                            <a href="/{{ page.categories | join: ' '  | downcase }}">{{ page.categories | join: "|" }}</a>
+                                        </li>
+                                    </ul>
+                                    <h2 class="heading-title heading--half-colored my-0">{{ page.blog-title }}</h2>
+                                    <div class="heading-text">{{ page.phrase }}</div>
+                                    <div class="post-additional-info">
+                
+                                        <div class="post-comments-date-wrap">
+                                            <div class="post__author-name fn">
+                                                by
+                                                <a href="#" class="post__author-link">{{ page.author }} </a>
+                                            </div>
+            
+                                            <div class="post__date">
+                                                <time class="published" datetime="2018-03-26 12:00:00">
+                                                    {{ page.date | date: "%b %-d, %Y" }}
+                                                </time>
+                                            </div>
+            
+                                            <!-- <div class="post__comments">
+                                                <a href="#">16 Comments</a>
+                                            </div> -->
+                                        </div>
+            
+                                    </div>
+                                </header>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <article class="hentry post-body post-standard has-post-thumbnail post-standard-details">
+                    {{ content }}
+                </article>
+
+                
+                <div class="comments-wrap">
+                    <header class="crumina-module crumina-heading heading--h3 heading--with-decoration">
+                        <h4 class="heading-title">Share Your Thoughts</h4>
+                    </header>
+
+                    <form class="contact-form leave-reply" method="post">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group label-floating is-empty">
+                                    <label class="input-label control-label">Write your message here</label>
+                                    <textarea class="form-control input--squared height-120" name="message"
+                                        placeholder=""></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group label-floating">
+                                    <label class="input-label control-label">What is your name? <abbr class="required"
+                                            title="required">*</abbr></label>
+                                    <input class="form-control input--squared" type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group label-floating">
+                                    <label class="input-label control-label">Email address
+                                        <abbr class="required" title="required">*</abbr></label>
+                                    <input class="form-control input--squared" type="email">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mx-auto">
+                                <button
+                                    class="btn btn--medium btn--secondary btn--transparent btn--hover-decoration full-width">post
+                                    a comment</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <hr class="divider divider--style10">
+
+                    <div class="comments" id="comments">
+
+                        <h4 class="title"><b>Comments on “<span>{{ page.blog-title }}</span>”</h4>
+
+                        <ol class="comments__list sorting-container" data-layout="masonry"
+                            data-isotope='{"masonry": { "columnWidth": ".grid-sizer-full-width" }}'>
+                            <li class="grid-sizer-full-width"></li>
+                            <li class="comments__item">
+
+                                <div class="comment-entry comment comments__article">
+
+                                    {% for comment in site.data.comments %}
+                                    {% if comment.blog == page.blog-title %}
+
+                                    <div class="comments__avatar">
+                                        <img src="{{ comment.avatar }}" alt="avatar">
+                                        <!-- <a href="#" class="link--with-decoration reply">Reply</a> -->
+                                    </div>
+
+
+                                    <div class="comments__body">
+
+                                        <div class="d-flex--content-inline">
+
+                                            <header class="comment-meta comments__header">
+
+                                                <cite class="fn url comments__author">
+                                                    <a href="#" rel="external">{{ comment.author }}</a>
+                                                </cite>
+
+                                                <div class="comments__time">
+                                                    <time class="published" datetime="{{ comment.date | date: '%Y-%m-%d %H:%M:%S' }}">{{ comment.date | date: "%B %-d, %Y at %l:%M %P"  }}</time>
+                                                </div>
+
+                                            </header>
+                                        </div>
+
+                                        <div class="comment-content comment">
+                                            <p>{{ comment.content }}
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+
+                            </li>
+                        </ol>
+
+                    </div>
+
+                    <!-- <div class="row align-center mb30 mt30">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <a href="#" class="btn btn--medium btn--secondary btn--transparent" id="load-more-button"
+                                data-load-link="comments-to-load.html" data-container="comments">load more comments</a>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <!-- Blog post Details end ... -->
+            
+            {% include sidebar.html%}
+
+        </div>
+<!-- 
+        <div class="navigation navigation--posts">
+            <a href="#" class="navigation-post-item mx-auto">
+                <img src="/assets/img/blog/digital-marketing-2.jpg" alt="screenshot">
+                <div class="overlay-standard"></div>
+                <div class="content-wrap">
+                    <div class="content">
+                        <div class="category">Also read</div>
+                        <h5 class="post-title">{{ page.blog-title }}</h5>
+                    </div>
+                </div>
+            </a>
+        </div> -->
+
+    </section>
+    
+</div>
+{% include cta.html %}
+{% include footer.html %}
+{% include scripts.html %}
+{% include chat.html %}
+{% include instagram-script.html %}
+</body>
+</html>

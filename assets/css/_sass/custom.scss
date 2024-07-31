@@ -1,0 +1,299 @@
+//Add all custom CSS here
+
+//.xyz {
+//    font-size: 100px;
+//
+//    @include media-query($on-palm) {
+//        font-size: 20px;
+//    }
+//}
+html{
+    scroll-behavior: smooth;
+    height: 100%;
+}
+.socials {
+      font-size: 30px;
+     li {
+        @include media-query($on-palm) {
+            font-size: 30px
+        }
+    }
+  }
+.contact-item .site-logo img {
+    @include media-query($on-palm) {
+        max-width: 150px
+    }
+}
+.category-list--btn-style li a {
+    font-size: 25px
+}
+.home-works-button {
+    @include media-query($on-palm) {
+        margin-bottom: 70px
+    }
+}
+.header-contact{
+    margin-right: -55vw;
+    @include media-query($on-palm) {
+        margin-right: 0
+    }
+}
+.menu-ham {
+    opacity:0.8;
+    &:hover {
+        opacity:0.5;
+    }
+}
+.copy-center{
+    margin: 0 auto;
+    a {
+        color: #00ffb3;
+    }
+    @include media-query($on-palm) {
+        margin-top: 40px;
+    }
+}
+.footer{
+    background: #3D434F;
+    .contact-item-title{
+        color: #eee;
+    }
+    .contact-item {
+        justify-content: inherit;
+        .info {
+            color: #868686;
+            font-weight: 400;
+            font-size: 16px;
+            a {
+                color: #868686;
+                font-weight: 400;
+                &:hover{
+                    color: #fff;
+                }
+            }
+        }
+        .contact-color .info a{
+            font-weight: 400;
+            color: #00ffb3;
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+    .socials--double-icons li a {
+        color: #868686;
+        &:hover {
+            color: #fff;
+        }
+    }
+    .site-logo img {
+        opacity: 0.9;
+    }
+}
+.crumina-portfolio-item{
+    border: 1px solid #f1f1f1
+}
+.crumina-portfolio-item .content {
+    top: 30px;
+}
+.site-logo img {
+    @include media-query($on-palm){
+        max-width: 70px;
+    }
+}
+//Mobile section ribbon for projects in home page
+.mobile-heading {
+    display: none;
+    @include media-query($content-width) {
+        display: block;
+        text-align: center;
+    }
+}
+.copyright-wrapper {
+  margin-top: 4em;
+}
+//header animation on mobile phone
+@include media-query($on-palm) {
+    .animated.slideUp {
+        animation-name: slideUp;
+    }
+    .animated.slideDown {
+    
+        animation-name: slideDown;
+    }
+    .animated{
+        animation-fill-mode: both;
+        will-change: transform, opacity;
+    }
+}
+.chat-button{
+    position: fixed;
+    right: 0;
+    bottom: 0;        
+    margin: 1em;
+    font-size: 1.5em;
+    color: #c3c9d4;
+    z-index: 99;
+    .chat-icon {
+        padding: 10px;
+        font-size: 3em;
+        color: #fff;
+        background: #25D366;
+        border-radius: 40%;
+    }
+}
+//Slider width 50%
+.teammember-details .teammembers-thumb {
+    width: 50%;
+    @include media-query($on-palm) {
+        width: 100%;
+    }
+}
+.shop-img{
+    padding: 100px 30px 0 70px;
+    @include media-query($on-laptop){
+        padding: 40px 0 0 40px;
+    }
+    @include media-query($on-palm){
+        padding: 60px 20px 0 20px;
+    }
+}
+
+// Shop page slider
+.slider-nav li{
+    margin: 0 1em;
+    cursor: pointer
+}
+.slick-prev {
+    left: -4% !important;
+    &:before {
+        color: #00ffb3 !important
+    }
+    @include media-query($on-laptop){
+        left: 5% !important;
+        z-index: 9 !important;
+    }
+    @include media-query($on-palm){
+        left: 5% !important;
+        z-index: 9 !important;
+    }
+}
+.slick-next{
+    right: -4% !important;
+    &:before {
+        color: #00ffb3 !important
+    }
+    @include media-query($on-laptop){
+        right: 5% !important;
+        z-index: 9 !important;
+    }
+    @include media-query($on-palm){
+        right: 5% !important;
+        z-index: 9 !important;
+    }
+}
+.slick-slider{
+    padding: 0 !important
+}
+.slick-slide img{
+//    border: solid 1px #d6d6d6;
+    border-radius: 10px;
+}
+.sale-price {
+    color: #00c087
+}
+.price {
+    color: chocolate;
+    font-size: .7em
+}
+.text-center{
+    text-align: center
+}
+.my-1{
+    margin: 1em 0
+}
+.mb-2{
+    margin-bottom: 2em
+}
+
+.my-modal {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+
+    &:target {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    &__content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 75%;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 2rem 4rem rgba(black, .2);
+      border-radius: 10px;
+      overflow: hidden; // This will keep the images sharp corners from protruding past the border-radius
+    
+      .button{
+        float:right;
+        font-size: large;
+        padding: 10px;
+      }
+
+      .button:hover{
+        color:#00ffb3;
+      }
+
+      .author{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        .profile{
+            width: 10%;
+            object-fit: contain;
+        }
+      }
+    }
+  
+    &__text {
+      max-height: 50vh;
+      overflow-y: scroll;
+      font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+  .my-modal{
+    &__content {      
+        width: 85%;
+
+        .button{
+          padding: 0px;
+        }
+  
+        .author{
+          gap: 10px;
+
+          .profile{
+              width: 30%;
+          }
+        }
+      }
+    
+      &__text {
+        font-size: 0.9rem;
+      }
+    }
+  }

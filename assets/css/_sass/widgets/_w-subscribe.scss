@@ -1,0 +1,29 @@
+/*------------- #W-SUBSCRIBE --------------*/
+
+
+.widget.w-subscribe {
+  background-color: $primary-color;
+  text-align: center;
+  padding-top: 20px;
+
+  p {
+	color: $secondary-color;
+	margin:0;
+  }
+
+  input {
+	padding: 5px 15px;
+	margin: 5px;
+  }
+
+  button {
+	padding: 10px 10px;
+	margin: 0 5px;
+  }
+
+  .title {
+	font-size: 30px;
+	font-family: 'Playfair Display', serif;
+	margin-top: 0;
+  }
+}
